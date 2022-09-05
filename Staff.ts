@@ -1,18 +1,20 @@
-enum Gender {
+export enum Gender {
     Male,
     Female,
     Other
 }
 
-class Staff {
-    name: string
-    gender: Gender = Gender.Other
-    email: string
-    age: number
-    numberPhone: number
+export class Staff {
+    ID: number
+    name?: string
+    gender?: Gender = Gender.Other
+    email?: string
+    age?: number
+    numberPhone?: number
     birthday?: Date
 
-    constructor(name: string, gender: Gender, email: string, age: number, numberPhone: number, birthday: Date) {
+    constructor(id: number, name?: string, gender?: Gender, email?: string, age?: number, numberPhone?: number, birthday?: Date) {
+        this.ID = id
         this.name = name
         this.gender = gender
         this.email = email
@@ -33,6 +35,14 @@ class Staff {
         this.age = age
     }
 
+    setNumPhone(numPhone: number): void {
+        this.numberPhone = numPhone
+    }
+
+    setBirthday(birthday: Date): void {
+        this.birthday = birthday
+    }
+
     getName(): string {
         return this.name
     }
@@ -44,18 +54,20 @@ class Staff {
     getAge(): number {
         return this.age
     }
+
+    getNumPhone(): number {
+        return this.numberPhone
+    }
+
+    getBirthday(): Date {
+        return this.birthday
+    }
+
+    getID(): number {
+        return this.ID
+    }
 }
 
-let listStaff: Staff[] = []
-listStaff.push(new Staff("aaa", Gender.Male, "12@21", 21, 02022, new Date("1990-09-19")))
-listStaff.push(new Staff("bbb", Gender.Female, "12@21", 22, 412, new Date("1992-01-13")))
-listStaff.push(new Staff("ccc", Gender.Other, "12@21", 24, 4234, new Date("1996-05-29")))
-
-function show(staff: Staff) {
-    console.log(staff)
-}
-
-listStaff.forEach(show)
 
 // function main() {
 //     let message: string;
@@ -100,26 +112,26 @@ listStaff.forEach(show)
 //     }
 // }
 
-class Circle {
-    color: string
-    radius: number
-
-    constructor(color: string, radius) {
-        this.color = color
-        this.radius = radius
-    }
-}
-
-let circleList: Circle[] = []
-circleList.push(new Circle("red", 30))
-circleList.push(new Circle("blue", 36))
-circleList.push(new Circle("green", 2))
-
-function showCircle(circle: Circle) {
-    console.log("hinh tron " + circle.radius + " mau sac " + circle.color)
-}
-
-circleList.forEach(showCircle)
+// class Circle {
+//     color: string
+//     radius: number
+//
+//     constructor(color: string, radius) {
+//         this.color = color
+//         this.radius = radius
+//     }
+// }
+//
+// let circleList: Circle[] = []
+// circleList.push(new Circle("red", 30))
+// circleList.push(new Circle("blue", 36))
+// circleList.push(new Circle("green", 2))
+//
+// function showCircle(circle: Circle) {
+//     console.log("hinh tron " + circle.radius + " mau sac " + circle.color)
+// }
+//
+// circleList.forEach(showCircle)
 
 
 

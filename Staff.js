@@ -1,12 +1,16 @@
+"use strict";
+exports.__esModule = true;
+exports.Staff = exports.Gender = void 0;
 var Gender;
 (function (Gender) {
     Gender[Gender["Male"] = 0] = "Male";
     Gender[Gender["Female"] = 1] = "Female";
     Gender[Gender["Other"] = 2] = "Other";
-})(Gender || (Gender = {}));
+})(Gender = exports.Gender || (exports.Gender = {}));
 var Staff = /** @class */ (function () {
-    function Staff(name, gender, email, age, numberPhone, birthday) {
+    function Staff(id, name, gender, email, age, numberPhone, birthday) {
         this.gender = Gender.Other;
+        this.ID = id;
         this.name = name;
         this.gender = gender;
         this.email = email;
@@ -23,6 +27,12 @@ var Staff = /** @class */ (function () {
     Staff.prototype.setAge = function (age) {
         this.age = age;
     };
+    Staff.prototype.setNumPhone = function (numPhone) {
+        this.numberPhone = numPhone;
+    };
+    Staff.prototype.setBirthday = function (birthday) {
+        this.birthday = birthday;
+    };
     Staff.prototype.getName = function () {
         return this.name;
     };
@@ -32,16 +42,18 @@ var Staff = /** @class */ (function () {
     Staff.prototype.getAge = function () {
         return this.age;
     };
+    Staff.prototype.getNumPhone = function () {
+        return this.numberPhone;
+    };
+    Staff.prototype.getBirthday = function () {
+        return this.birthday;
+    };
+    Staff.prototype.getID = function () {
+        return this.ID;
+    };
     return Staff;
 }());
-var listStaff = [];
-listStaff.push(new Staff("aaa", Gender.Male, "12@21", 21, 02022, new Date("1990-09-19")));
-listStaff.push(new Staff("bbb", Gender.Female, "12@21", 22, 412, new Date("1992-01-13")));
-listStaff.push(new Staff("ccc", Gender.Other, "12@21", 24, 4234, new Date("1996-05-29")));
-function show(a) {
-    console.log(a);
-}
-listStaff.forEach(show);
+exports.Staff = Staff;
 // function main() {
 //     let message: string;
 //     let total: number = 100;
